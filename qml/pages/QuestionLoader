@@ -1,7 +1,7 @@
 Item {
     id: item
 
-    property string word:"котангенс"
+    property string word:""
 
     XmlListModel {
         id: xml
