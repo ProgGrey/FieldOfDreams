@@ -16,7 +16,7 @@ Item {
     {
         xml.source = "xml/xmldb" + Math.floor(59*Math.random()) + ".xml"
         var index = Math.floor(100*Math.random());
-        item.word = get(index).answer;
+        word = get(index).answer;
         question = get(index).question;
 
         }
