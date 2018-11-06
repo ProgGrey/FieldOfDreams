@@ -1,0 +1,23 @@
+Item {
+    id: item
+
+    property string word:"котангенс"
+
+    XmlListModel {
+        id: xml
+
+        query: "/DB/R"
+        XmlRole {name: "question"; query: "Q/string()"}
+        XmlRole {name: "answer"; query: "A/string()"}
+          }
+
+
+    function load()
+    {
+        xml.source = "xml/xmldb" + Math.floor(59*Math.random()) + ".xml"
+        var index = Math.floor(100*Math.random());
+        item.word = get(index).answer;
+        question = get(index).question;
+
+        }
+    }
