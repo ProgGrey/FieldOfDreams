@@ -1,7 +1,8 @@
 Item {
     id: item
 
-    property string word:""
+    property string answer:""
+    property string question:""
 
     XmlListModel {
         id: xml
@@ -16,7 +17,7 @@ Item {
     {
         xml.source = "xml/xmldb" + Math.floor(59*Math.random()) + ".xml"
         var index = Math.floor(100*Math.random());
-        word = get(index).answer;
+        answer = get(index).answer;
         question = get(index).question;
 
         }
