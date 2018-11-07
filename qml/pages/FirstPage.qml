@@ -4,14 +4,14 @@ import Sailfish.Silica 1.0
 Page {
     id: page
 
-    // The effective value will be restricted by ApplicationWindow.allowedOrientations
+    // Эффективное значение будет ограничено ApplicationWindow.allowedOrientations
     allowedOrientations: Orientation.All
 
-    // To enable PullDownMenu, place our content in a SilicaFlickable
+    // Чтобы включить PullDownMenu, поместите свой контент в SilicaFlickable
     SilicaFlickable {
         anchors.fill: parent
 
-        // PullDownMenu and PushUpMenu must be declared in SilicaFlickable, SilicaListView or SilicaGridView
+        // PullDownMenu и PushUpMenu должны быть объявлены в SilicaFlickable, SilicaListView или SilicaGridView
         PullDownMenu {
             MenuItem {
                 text: qsTr("Show Page 2")
@@ -19,11 +19,11 @@ Page {
             }
         }
 
-        // Tell SilicaFlickable the height of its content.
+        // Сообщите SilicaFlickable высоту его содержимого.
         contentHeight: column.height
 
-        // Place our content in a Column.  The PageHeader is always placed at the top
-        // of the page, followed by our content.
+        // Поместите наш контент в Column. PageHeader всегда размещается в верхней части
+        // страницы, а затем наш контент.
         Column {
             id: column
 
