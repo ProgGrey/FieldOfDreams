@@ -1,0 +1,47 @@
+import QtQuick 2.0
+import Sailfish.Silica 1.0
+import QtQuick.LocalStorage 2.0
+
+Item{
+    id: settings
+
+    property int difficulty_count
+    property bool isMusic_count
+
+    Component.onCompleted: {load();}
+
+    function  load()
+    {
+        var db = LocalStorage.openDatabaseSync("SettingsDatabase", "1.0", 250)
+        db.transaction(
+            function(tx) {
+                tx.executeSql('CREATE TABLE IF NOT EXISTS Settings(id INTEGER UNIQUE, difficulty INTEGER, isMusic BOOL)');
+
+                var rs = tx.executeSql('SELECT difficulty, isMusic FROM Settings WHERE id = 0');
+                if (rs.rows.length === 0)
+                {
+                    difficulty_count = 0;
+                    isMusic_count = 0;
+                } else {
+                    difficulty_count = rs.rows.item(0).difficulty;
+                    isMusic_count = rs.rows.item(0).isMusic;
+                }
+
+
+            }
+        )
+    }
+
+    function save() {
+        var db = LocalStorage.openDatabaseSync("SettingsDatabase", "1.0", 250)
+
+        db.transaction(
+            function(tx) {
+                tx.executeSql('INSERT OR REPLACE INTO Settings(id, difficulty, isMusic) VALUES(0,?,?)', [difficulty_count, isMusic_count]);
+            }
+        )
+
+    }
+}
+
+
