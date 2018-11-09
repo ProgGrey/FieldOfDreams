@@ -19,7 +19,7 @@ Item {
 
     function load()
     {
-        xml.source = "xml/xmldb" + Math.floor(59*Math.random()) + ".xml"
+        xml.source = "xml/xmldb" + Math.floor(116*Math.random()) + ".xml"
         var index = Math.floor(50*Math.random());
         answer = get(index).answer;
         question = get(index).question;
