@@ -5,8 +5,8 @@ import QtQuick.LocalStorage 2.0
 Item{
     id: settings
 
-    property int difficulty_count
-    property bool isMusic_count
+    property int difficulty
+    property bool isMusic
 
     Component.onCompleted: {load();}
 
@@ -20,11 +20,11 @@ Item{
                 var rs = tx.executeSql('SELECT difficulty, isMusic FROM Settings WHERE id = 0');
                 if (rs.rows.length === 0)
                 {
-                    difficulty_count = 0;
-                    isMusic_count = 0;
+                    difficulty = 0;
+                    isMusic = true;
                 } else {
-                    difficulty_count = rs.rows.item(0).difficulty;
-                    isMusic_count = rs.rows.item(0).isMusic;
+                    difficulty = rs.rows.item(0).difficulty;
+                    isMusic = rs.rows.item(0).isMusic;
                 }
 
 
@@ -37,7 +37,7 @@ Item{
 
         db.transaction(
             function(tx) {
-                tx.executeSql('INSERT OR REPLACE INTO Settings(id, difficulty, isMusic) VALUES(0,?,?)', [difficulty_count, isMusic_count]);
+                tx.executeSql('INSERT OR REPLACE INTO Settings(id, difficulty, isMusic) VALUES(0,?,?)', [difficulty, isMusic]);
             }
         )
 
