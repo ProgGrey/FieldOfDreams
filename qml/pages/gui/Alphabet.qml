@@ -6,12 +6,12 @@ PushUpMenu {
     property string charVars: "абвгдежзийклмнопрстуфхцчшщъыьэюя"
     property var isCharDeleted: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
 
-    // удаляет букву с клавиатуры
+      // Удаляет букву с клавиатуры
     function delete_char(c)
     {
         // Получаем позицию в алфавите
         var n = charVars.indexOf(c);
-        // получаемм нужный элемент
+        // Получаемм нужный элемент
         var tmp = alphabetKeyboard.itemAt(Math.floor(n/8));
         console.log(c , " - ", Math.floor(n/8));
         //Удаляем букву
@@ -34,7 +34,7 @@ PushUpMenu {
 
     Repeater {
         id:alphabetKeyboard
-        // 4 строки
+         // 4 строки
         model:4
 
         MenuLabel {
@@ -42,7 +42,7 @@ PushUpMenu {
 
             height:100;
             Repeater {
-                // в каждой строке по 8 элементов
+                // В каждой строке по 8 элементов
                 model:8
                 Button {
                     property int number: alphabetFirstRepeaterIndex*8+index
@@ -52,10 +52,10 @@ PushUpMenu {
                     x:parent.width/8*index;
                     text:charVars[number]
                     onClicked: {
-                        //Удаляем букву
+                        // Удаляем букву
                         isCharDeleted[number] = true;
                         visible = false;
-                        // выходим из меню
+                        // Выходим из меню
                         alphabetMenu.close();
                     }
                 }
