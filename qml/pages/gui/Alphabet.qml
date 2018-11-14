@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
+// Меню появляется снизу и активируется свайп жестом снизу вверх.
 PushUpMenu {
     id: alphabetMenu
     property string charVars: "абвгдежзийклмнопрстуфхцчшщъыьэюя"
@@ -32,11 +33,13 @@ PushUpMenu {
     }
 
 
+    // Повторитель
     Repeater {
         id:alphabetKeyboard
          // 4 строки
         model:4
-
+   
+        // Статичный пункт меню, который просто отображает некоторый текст и не может быть нажат.
         MenuLabel {
             property int alphabetFirstRepeaterIndex: index;
 
