@@ -50,7 +50,7 @@ Page {
                     width: parent.width 
                     im_source: "button.png"
                     button_text: qsTr("Новая игра")
-                    //onClicked: pageStack.push(Qt.resolvedUrl("MainField.qml"))
+                    onClicked: pageStack.push(Qt.resolvedUrl("MainField.qml"))
                 }
 
                 //Кнопка "Продолжить"
@@ -61,7 +61,7 @@ Page {
                     width: parent.width
                     im_source: "button.png"
                     button_text: qsTr("Продолжить")
-                  //  onClicked: pageStack.push(Qt.resolvedUrl("MainField.qml"))
+                    onClicked: pageStack.push(Qt.resolvedUrl("MainField.qml"))
                 }
 
                 //Кнопка "Настройки"
@@ -72,7 +72,7 @@ Page {
                     width: parent.width
                     im_source: "button.png"
                     button_text: qsTr("Настройки")
-                  //  onClicked: pageStack.push(Qt.resolvedUrl("Settings.qml"))
+                    onClicked: pageStack.push(Qt.resolvedUrl("Settings.qml"))
                 }
 
                 //Кнопка "Рекорды"
