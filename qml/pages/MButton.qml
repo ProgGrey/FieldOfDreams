@@ -12,3 +12,19 @@ Image {
     opacity: 0.95
 
     Button {
+            id: im_button
+        anchors.centerIn: parent
+        width: parent.width
+        height: parent.height
+        Text {
+            anchors.centerIn: parent
+            font.pixelSize: 50
+            font.family: "Impact"
+            font.bold: true
+            text: button_text
+            color: "white"
+        }
+        color: "black"
+        onClicked: parent.clicked()
+    }
+}
