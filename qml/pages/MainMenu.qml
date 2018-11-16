@@ -49,3 +49,56 @@ Page {
                     x: parent.width / 2 - width / 2
                     width: parent.width 
                     im_source: "button.png"
+                    button_text: qsTr("Новая игра")
+                    //onClicked: pageStack.push(Qt.resolvedUrl("MainField.qml"))
+                }
+
+                //Кнопка "Продолжить"
+                MButton
+                {
+                    anchors.topMargin: parent.height / 16
+                    x: parent.width / 2 - width / 2
+                    width: parent.width
+                    im_source: "button.png"
+                    button_text: qsTr("Продолжить")
+                  //  onClicked: pageStack.push(Qt.resolvedUrl("MainField.qml"))
+                }
+
+                //Кнопка "Настройки"
+                MButton
+                {
+                    anchors.topMargin: parent.height / 16
+                    x: parent.width / 2 - width / 2
+                    width: parent.width
+                    im_source: "button.png"
+                    button_text: qsTr("Настройки")
+                  //  onClicked: pageStack.push(Qt.resolvedUrl("Settings.qml"))
+                }
+
+                //Кнопка "Рекорды"
+                MButton
+                {
+                    anchors.topMargin: parent.height / 16
+                    x: parent.width / 2 - width / 2
+                    width: parent.width
+                    im_source: "button.png"
+                    button_text: qsTr("Рекорды")
+                    onClicked: pageStack.push(Qt.resolvedUrl("Records.qml"))
+                }
+
+                //Кнопка "Выход"
+                MButton
+                {
+                    anchors.topMargin: parent.height / 16
+                    x: parent.width / 2 - width / 2
+                    width: parent.width
+                    im_source: "button.png"
+                    button_text: qsTr("Выход")
+                    onClicked: Qt.quit()
+                }
+            }
+        }
+    }
+}
+
+
