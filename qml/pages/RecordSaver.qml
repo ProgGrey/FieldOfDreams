@@ -11,7 +11,7 @@ Item{
     property bool isVictory
 
 
-    function save() {
+    function add() {
         var db = LocalStorage.openDatabaseSync("RecordSaveDatabase", "1.0", 250)
 
         db.transaction(
