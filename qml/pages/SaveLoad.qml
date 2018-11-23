@@ -5,11 +5,15 @@ import QtQuick.LocalStorage 2.0
 // Модуль сохранения и загрузки игры.
 Item{
     id: saveload
-
+    // Вопрос
     property string question
+    //  Ответ
     property string answer
+    // Все буквы, которые уже вышли из игры
     property string deletedChars
+    // Счёт игрока
     property int score
+    // Сейчас ходит ИИ?
     property bool isAI
 
     Component.onCompleted: {load();}
@@ -35,8 +39,10 @@ Item{
 
         db.transaction(
             function(tx) {
+	     // Создаем SaveLoad, если он еще не существует
 		tx.executeSql('CREATE TABLE IF NOT EXISTS SaveLoad(id INTEGER UNIQUE, question STRING, answer STRING, deletedChars STRING, score INT, isAI BOOL)');
-                tx.executeSql('INSERT OR REPLACE INTO SaveLoad(id, question, answer, deletedChars, score, isAI) VALUES(0,?,?,?,?,?)', [question, answer, deletedChars, score, isAI]);
+             // Добавит или заменить SaveLoad   
+		tx.executeSql('INSERT OR REPLACE INTO SaveLoad(id, question, answer, deletedChars, score, isAI) VALUES(0,?,?,?,?,?)', [question, answer, deletedChars, score, isAI]);
             }
         )
 
