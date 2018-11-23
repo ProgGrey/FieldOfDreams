@@ -5,9 +5,12 @@ import QtQuick.XmlListModel 2.0
 Item {
     id: item
 
+    // Ответ
     property string answer:""
+    // Вопрос
     property string question:""
 
+    // База данных вопросов и ответов
     XmlListModel {
         id: xml
 
