@@ -4,6 +4,9 @@ Item {
     property var sectors:[100, 900, -3, 600, 800, -2, 400, 1100, 0, -1, 500, 300, 200, 1000, 700, -2]
 
     property bool isAi:false;
+       
+    // Запускает процесс вращения барабана ИИ. Сначала проигрывается анимация вращения
+    // барабана, потом вызывается ai_rotate(<кол-во выпавших очков>) из Kernel.
     function ai_rotate()
     {
         isAi = true;
@@ -20,6 +23,7 @@ Item {
     width:parent.width
     height:parent.width
 
+// Время
     Timer{
         id:aiTimer
         repeat: false;
@@ -31,7 +35,8 @@ Item {
             parent.parent.parent.ai_rotate(sectors[pos]);
         }
     }
-
+    
+ //Загрузка изображения барабана
     Image {
         id:cyl
         source: "../images/barrel.png"
@@ -45,6 +50,8 @@ Item {
            to: 359
            duration: 5000
            running: false
+           
+           // Кнопка, останавливающая барабан.
            onStopped: {
                if (rotateAnimation.isRotate){
                    restart();
@@ -53,6 +60,7 @@ Item {
        }
     }
 
+// Загрузка стрелы, указывающей на выпавшее кол-во очков.
     Image {
         source: "../images/arrow.png"
         width:parent.width * 0.2
@@ -60,6 +68,7 @@ Item {
         x:parent.width-width
     }
 
+// Обработка мыши
     MouseArea{
         width: parent.width*0.2
         height:parent.height*0.2
