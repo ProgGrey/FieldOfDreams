@@ -18,14 +18,14 @@ SOURCES += src/FieldOfDreams.cpp
 
 DISTFILES += qml/FieldOfDreams.qml \
     qml/cover/CoverPage.qml \
-    qml/pages/FirstPage.qml \
     qml/pages/SecondPage.qml \
     rpm/FieldOfDreams.changes.in \
     rpm/FieldOfDreams.changes.run.in \
     rpm/FieldOfDreams.spec \
     rpm/FieldOfDreams.yaml \
     translations/*.ts \
-    FieldOfDreams.desktop
+    FieldOfDreams.desktop \
+    qml/pages/MainField.qml
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 
