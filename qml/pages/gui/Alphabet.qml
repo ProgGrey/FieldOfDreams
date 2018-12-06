@@ -14,7 +14,7 @@ PushUpMenu {
         var n = charVars.indexOf(c);
         // Получаем нужный элемент
         var tmp = alphabetKeyboard.itemAt(Math.floor(n/8));
-        console.log(c , " - ", Math.floor(n/8), n);
+        //console.log(c , " - ", Math.floor(n/8), n);
         //Удаляем букву
         isCharDeleted[n] = true;
         tmp.children[n % 8 + 1].visible = false;

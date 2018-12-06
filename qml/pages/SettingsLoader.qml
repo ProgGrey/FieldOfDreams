@@ -10,8 +10,6 @@ Item{
     property int difficulty
     // Включена ли фоновая музыка.
     property bool isMusic
-
-    Component.onCompleted: {load();}
      
     // Метод загрузки настроек из базы данных. После выполнения свойства difficulty и isMusic будут содержать загруженные значения. 
     function  load()

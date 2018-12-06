@@ -5,12 +5,12 @@ import QtQuick.XmlListModel 2.0
 Item {
     id: item
 
-    // РћС‚РІРµС‚
+    // Ответ
     property string answer:""
-    // Р’РѕРїСЂРѕСЃ
+    // Вопрос
     property string question:""
 
-    // Р‘Р°Р·Р° РґР°РЅРЅС‹С… РІРѕРїСЂРѕСЃРѕРІ Рё РѕС‚РІРµС‚РѕРІ
+    // База данных вопросов и ответов
     XmlListModel {
         id: xml
 
@@ -19,13 +19,13 @@ Item {
         XmlRole {name: "answer"; query: "A/string()"}
           }
 
-// РњРѕРґСѓР»СЊ Р·Р°РіСЂСѓР·РєРё РІРѕРїСЂРѕСЃР° РёР· Р±Р°Р·С‹ РґР°РЅРЅС‹С…
+// Модуль загрузки вопроса из базы данных
     function load()
     {
         xml.source = "questions/" + Math.floor(115*Math.random()) + 1 + ".xml"
         var index = Math.floor(50*Math.random());
-        answer = get(index).answer; // Р’РѕРїСЂРѕСЃ
-        question = get(index).question; // РћС‚РІРµС‚
+        answer = get(index).answer; // Вопрос
+        question = get(index).question; // Ответ
 
         }
     }

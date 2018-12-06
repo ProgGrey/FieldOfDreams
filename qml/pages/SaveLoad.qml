@@ -15,8 +15,6 @@ Item{
     property int score
     // Сейчас ходит ИИ?
     property bool isAI
-
-    Component.onCompleted: {load();}
     
 // Модуль загрузки сохранённой игры из базы данных
     function  load()

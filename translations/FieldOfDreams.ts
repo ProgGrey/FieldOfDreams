@@ -9,6 +9,17 @@
     </message>
 </context>
 <context>
+    <name>Defeat</name>
+    <message>
+        <source>Вы проиграли!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Выйти в главное меню</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainMenu</name>
     <message>
         <source>Новая игра</source>
@@ -28,28 +39,6 @@
     </message>
     <message>
         <source>Выход</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Records</name>
-    <message>
-        <source>Nested Page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Item</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SecondPage</name>
-    <message>
-        <source>Nested Page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Item</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -89,6 +78,17 @@
     </message>
     <message>
         <source>Очистить таблицу</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Victory</name>
+    <message>
+        <source>Вы выиграли!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Выйти в главное меню</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -25,7 +25,7 @@ Page {
         width:parent.width
         height:parent.height
 
-        /*Button{
+        Button{
             text:"Заполнить базу"
             onClicked:{
                 var db = LocalStorage.openDatabaseSync("FieldsOfDreamDB", "1.0", "Fields of dream records", 256)
@@ -39,7 +39,7 @@ Page {
                     }
                 )
             }
-        }*/
+        }//*/
         Rectangle{
             width:parent.width
             height:parent.height/14
