@@ -12,12 +12,12 @@ PushUpMenu {
     {
         // Получаем позицию в алфавите
         var n = charVars.indexOf(c);
-        // Получаемм нужный элемент
+        // Получаем нужный элемент
         var tmp = alphabetKeyboard.itemAt(Math.floor(n/8));
-        console.log(c , " - ", Math.floor(n/8));
+        console.log(c , " - ", Math.floor(n/8), n);
         //Удаляем букву
         isCharDeleted[n] = true;
-        tmp.children[n % 8].visible = false;
+        tmp.children[n % 8 + 1].visible = false;
     }
 
     // Получить удалённые буквы
