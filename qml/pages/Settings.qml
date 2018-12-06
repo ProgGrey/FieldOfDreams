@@ -1,5 +1,6 @@
 import QtQuick 2.5
 import Sailfish.Silica 1.0
+import QtQuick.LocalStorage 2.0
 
 Page {
     id: page
@@ -11,7 +12,7 @@ Page {
         anchors.fill: parent
         //Загрузка фонового изображения
         Image {
-            source: "fon1.png"
+            source: "./images/fon1.png"
             width: Screen.width
             height: Screen.height
         }
@@ -27,7 +28,7 @@ Page {
                    x: parent.width / 2 - width / 2
                    width: parent.width
                    Image {
-                       source: "button.png"
+                       source: "./images/button.png"
                        width: 800
                        height: 80
                        Text {
@@ -49,7 +50,7 @@ Page {
                     x: parent.width / 1.5 - width / 1.5
                     y: parent.height / 9 - height / 9
                     Image {
-                        source: "button.png"
+                        source: "./images/button.png"
                         width: 400
                         height: 80
                         Text {
@@ -87,17 +88,17 @@ Page {
                              visible: true
                              clip: true
                              opacity: 1.0
-                             source: "sound on.png"
+                             source: "./images/sound on.png"
                              property bool pressed: false
 
                              states:[
                                  State {
                                      name: "BUTTON_PRESSED"
-                                     PropertyChanges { target: button; source: "sound on.png"}
+                                     PropertyChanges { target: button; source: "./images/sound on.png"}
                                  },
                                  State {
                                      name: "BUTTON_RELEASED"
-                                     PropertyChanges { target: button; source: "sound off.png"}
+                                     PropertyChanges { target: button; source: "./images/sound off.png"}
                                  }
                              ]
 
@@ -129,7 +130,7 @@ Page {
                     x: parent.width / 2 - width / 2
                     y: parent.height / 3 - height / 3
                     Image {
-                        source: "button.png"
+                        source: "./images/button.png"
                         width: 600
                         height: 80
                         Text {
@@ -168,17 +169,17 @@ Page {
                              visible: true
                              clip: true
                              opacity: 1.0
-                             source: "star1.png"
+                             source: "./images/star1.png"
                              property bool pressed: false
 
                              states:[
                                  State {
                                      name: "BUTTON_PRESSED"
-                                     PropertyChanges { target: button1; source: "star1.png"}
+                                     PropertyChanges { target: button1; source: "./images/star1.png"}
                                  },
                                  State {
                                      name: "BUTTON_RELEASED"
-                                     PropertyChanges { target: button1; source: "star2.png"}
+                                     PropertyChanges { target: button1; source: "./images/star2.png"}
                                  }
                              ]
 
@@ -188,8 +189,8 @@ Page {
                                  width:parent.width
                                  height: parent.height
                                  onClicked: {
-                                    button2.source = "two yellow star.png";
-                                    button3.source = "three yellow stars.png";
+                                    button2.source = "./images/two yellow star.png";
+                                    button3.source = "./images/three yellow stars.png";
                                  }
                                  
                                  onPressed:{
@@ -231,17 +232,17 @@ Page {
                              visible: true
                              clip: true
                              opacity: 1.0
-                             source: "two yellow star.png"
+                             source: "./images/two yellow star.png"
                              property bool pressed: false
 
                              states:[
                                  State {
                                      name: "BUTTON_PRESSED"
-                                     PropertyChanges { target: button2; source: "two yellow star.png"}
+                                     PropertyChanges { target: button2; source: "./images/two yellow star.png"}
                                  },
                                  State {
                                      name: "BUTTON_RELEASED"
-                                     PropertyChanges { target: button2; source: "two red stars.png"}
+                                     PropertyChanges { target: button2; source: "./images/two red stars.png"}
                                  }
                              ]
 
@@ -251,8 +252,8 @@ Page {
                                  width:parent.width
                                  height: parent.height
                                  onClicked:{
-                                    button1.source = "star1.png";
-                                    button3.source = "three yellow stars.png";
+                                    button1.source = "./images/star1.png";
+                                    button3.source = "./images/three yellow stars.png";
                                   }
 
                                  onPressed:{
@@ -294,17 +295,17 @@ Page {
                              visible: true
                              clip: true
                              opacity: 1.0
-                             source: "three yellow stars.png"
+                             source: "./images/three yellow stars.png"
                              property bool pressed: false
 
                              states:[
                                  State {
                                      name: "BUTTON_PRESSED"
-                                     PropertyChanges { target: button3; source: "three yellow stars.png"}
+                                     PropertyChanges { target: button3; source: "./images/three yellow stars.png"}
                                  },
                                  State {
                                      name: "BUTTON_RELEASED"
-                                     PropertyChanges { target: button3; source: "three red stars.png"}
+                                     PropertyChanges { target: button3; source: "./images/three red stars.png"}
                                  }
                              ]
 
@@ -314,8 +315,8 @@ Page {
                                  width:parent.width
                                  height: parent.height
                                  onClicked:{
-                                    button1.source = "star1.png";
-                                    button2.source = "two yellow star.png";
+                                    button1.source = "./images/star1.png";
+                                    button2.source = "./images/two yellow star.png";
                                   }
 
                                  onPressed:{
@@ -340,7 +341,7 @@ Page {
                       x: parent.width / 1.5 - width / 1.5
                       y: parent.height / 1.55 - height / 1.55
                       Image {
-                          source: "button.png"
+                          source: "./images/button.png"
                           width: 600
                           height: 80
                           Text {
@@ -374,11 +375,18 @@ Page {
                       x: parent.width /0.19 - width /0.19
                       y: parent.height / 1.3 - height / 1.3
                       Image {
-                          source: "bak.png"
+                          source: "./images/bak.png"
                           width: 80
                           height: 80
                       }
-                    onClicked: stat.dropStat()
+                    onClicked: {
+                        var db = LocalStorage.openDatabaseSync("FieldsOfDreamDB", "1.0", "Fields of dream records", 256)
+                        db.transaction(
+                            function(tx) {
+                                tx.executeSql('DROP TABLE IF EXISTS Records');//Удаляем таблицу
+                            }
+                        )
+                    }
                 }
             }
         }

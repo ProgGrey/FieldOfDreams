@@ -6,12 +6,13 @@ Page {
 
     // Эффективное значение будет ограничено ApplicationWindow.allowedOrientations
     allowedOrientations: Orientation.All
+    property bool isLoad:false;
 
     Rectangle {
         anchors.fill: parent
         //Загрузка фонового изображения
         Image {
-            source: "fon.png"
+            source: "./images/fon.png"
             width: Screen.width
             height: Screen.height
         }
@@ -35,7 +36,7 @@ Page {
                 //Загрузка логотипа "Поле чудес"
                 Image
                 {
-                    source: "logo1.png"
+                    source: "./images/logo1.png"
                     height: parent.width * 1.1
                     width: parent.width * 0.6
                     x: parent.width / 2 - width / 2
@@ -48,9 +49,9 @@ Page {
                     anchors.topMargin: parent.width / 4
                     x: parent.width / 2 - width / 2
                     width: parent.width 
-                    im_source: "button.png"
+                    im_source: "./images/button.png"
                     button_text: qsTr("Новая игра")
-                    onClicked: pageStack.push(Qt.resolvedUrl("MainField.qml"))
+                    onClicked: pageStack.push(Qt.resolvedUrl("Kernel.qml"))
                 }
 
                 //Кнопка "Продолжить"
@@ -59,9 +60,12 @@ Page {
                     anchors.topMargin: parent.height / 16
                     x: parent.width / 2 - width / 2
                     width: parent.width
-                    im_source: "button.png"
+                    im_source: "./images/button.png"
                     button_text: qsTr("Продолжить")
-                    onClicked: pageStack.push(Qt.resolvedUrl("MainField.qml"))
+                    onClicked: {
+                        page.isLoad = true;
+                        pageStack.push(Qt.resolvedUrl("Kernel.qml"));
+                    }
                 }
 
                 //Кнопка "Настройки"
@@ -70,7 +74,7 @@ Page {
                     anchors.topMargin: parent.height / 16
                     x: parent.width / 2 - width / 2
                     width: parent.width
-                    im_source: "button.png"
+                    im_source: "./images/button.png"
                     button_text: qsTr("Настройки")
                     onClicked: pageStack.push(Qt.resolvedUrl("Settings.qml"))
                 }
@@ -81,7 +85,7 @@ Page {
                     anchors.topMargin: parent.height / 16
                     x: parent.width / 2 - width / 2
                     width: parent.width
-                    im_source: "button.png"
+                    im_source: "./images/button.png"
                     button_text: qsTr("Рекорды")
                     onClicked: pageStack.push(Qt.resolvedUrl("Records.qml"))
                 }
@@ -92,7 +96,7 @@ Page {
                     anchors.topMargin: parent.height / 16
                     x: parent.width / 2 - width / 2
                     width: parent.width
-                    im_source: "button.png"
+                    im_source: "./images/button.png"
                     button_text: qsTr("Выход")
                     onClicked: Qt.quit()
                 }
