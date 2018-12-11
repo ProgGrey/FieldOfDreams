@@ -5,27 +5,26 @@ import QtQuick.XmlListModel 2.0
 Item {
     id: item
 
-    // Ответ
-    property string answer:""
-    // Вопрос
-    property string question:""
-
-    // База данных вопросов и ответов
+    // Р‘Р°Р·Р° РґР°РЅРЅС‹С… РІРѕРїСЂРѕСЃРѕРІ Рё РѕС‚РІРµС‚РѕРІ
     XmlListModel {
         id: xml
-
         query: "/DB/R"
+        source: "./questions/" + Math.floor(115*Math.random()) + ".xml"
         XmlRole {name: "question"; query: "Q/string()"}
         XmlRole {name: "answer"; query: "A/string()"}
+        onStatusChanged: {
+            if (status == XmlListModel.Ready) {
+                var index = Math.floor(50*Math.random());
+                console.log(source, get(index).answer, get(index).question)
+                item.parent.parent.answer = get(index).answer; // Р’РѕРїСЂРѕСЃ
+                item.parent.parent.question = get(index).question; // РћС‚РІРµС‚
+                // Р“РѕС‚РѕРІРёРјСЃСЏ РїРѕРєР°Р·Р°С‚СЊ РЅР° С‚Р°Р±Р»Рѕ РїСѓСЃС‚СѓСЋ СЃС‚СЂРѕРєСѓ
+                var str = "";
+                for(var k = 0; k < item.parent.parent.answer.length; k++){
+                    str += "_";
+                }
+                item.parent.parent.word = str;
+            }
           }
-
-// Модуль загрузки вопроса из базы данных
-    function load()
-    {
-        xml.source = "questions/" + Math.floor(115*Math.random()) + 1 + ".xml"
-        var index = Math.floor(50*Math.random());
-        answer = get(index).answer; // Вопрос
-        question = get(index).question; // Ответ
-
-        }
     }
+}
