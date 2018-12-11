@@ -16,7 +16,7 @@ Item {
         {
             aiModule.setSource("Medium.qml");
         } else {
-            aiModule.setSource("Hard.qml");
+            aiModule.setSource("Medium.qml");// Должно быть Hard, но этого модуля ещё нет
         }
     }
 // возвращает букву, которую предсказал ИИ. 
