@@ -80,7 +80,9 @@ Item {
                 rotateAnimation.isRotate = false;
                 var pos = Math.round(cyl.rotation*16/360);
                 pos == 16 ? pos = 0 : pos = pos;
-                parent.parent.parent.user_rotate(sectors[pos]);
+                parent.parent.parent.parent.parent.parent.user_rotate(sectors[pos]);
+                //parent.parent.parent.parent.user_rotate(sectors[pos]);
+                //parent.parent.parent.user_rotate(sectors[pos]);
             } else {
                 rotateAnimation.isRotate = true;
                 if(cyl.rotation == 0){
