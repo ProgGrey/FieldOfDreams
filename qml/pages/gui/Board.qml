@@ -12,19 +12,22 @@ Item{
     property string word:parent.parent.parent.parent.parent.word
     property string question:parent.parent.parent.parent.parent.question
     property int stringLen: word.length
-    property int score:0
+    property int score:parent.parent.parent.parent.parent.score
 
     Rectangle{
         width: parent.width
         height: parent.height/14*4
         color:"#336699"
         TextArea{
+            width: parent.width
+            height: parent.height*0.6
             color:"#FFFFFF"
+            readOnly: true
             text:field.question
             font.bold: true
             font.family: "Impact"
             font.pixelSize:25
-            anchors.fill:parent
+            anchors.centerIn: parent
         }
     }
 
