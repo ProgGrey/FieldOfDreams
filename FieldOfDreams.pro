@@ -25,7 +25,8 @@ DISTFILES += qml/FieldOfDreams.qml \
     translations/*.ts \
     FieldOfDreams.desktop \
     qml/pages/MainField.qml \
-    questions/*.xml
+    questions/*.xml \
+    qml/pages/dialogs/Exit.qml
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 

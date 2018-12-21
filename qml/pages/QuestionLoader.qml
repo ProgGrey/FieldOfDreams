@@ -15,7 +15,7 @@ Item {
         onStatusChanged: {
             if (status == XmlListModel.Ready) {
                 var index = Math.floor(50*Math.random());
-                console.log(source, get(index).answer, get(index).question)
+                //console.log(source, get(index).answer, get(index).question)
                 item.parent.parent.answer = get(index).answer; // Вопрос
                 item.parent.parent.question = get(index).question; // Ответ
                 // Готовимся показать на табло пустую строку

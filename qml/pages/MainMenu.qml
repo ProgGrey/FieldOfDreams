@@ -51,7 +51,11 @@ Page {
                     width: parent.width 
                     im_source: "./images/button.png"
                     button_text: qsTr("Новая игра")
-                    onClicked: pageStack.push(Qt.resolvedUrl("Kernel.qml"))
+                    onClicked: {
+                        page.isLoad = false;
+                        console.log("new");
+                        pageStack.push(Qt.resolvedUrl("Kernel.qml"));
+                    }
                 }
 
                 //Кнопка "Продолжить"
@@ -64,6 +68,7 @@ Page {
                     button_text: qsTr("Продолжить")
                     onClicked: {
                         page.isLoad = true;
+                        console.log("continue");
                         pageStack.push(Qt.resolvedUrl("Kernel.qml"));
                     }
                 }

@@ -25,6 +25,7 @@ Item{
                 var rs = tx.executeSql('SELECT question, answer, deletedChars, score, isAI FROM SaveLoad WHERE id = 0');
                 question = rs.rows.item(0).question;
                 answer = rs.rows.item(0).answer;
+                //console.log(answer);
                 deletedChars = rs.rows.item(0).deletedChars;
                 score = rs.rows.item(0).score;
                 isAI = rs.rows.item(0).isAI;

@@ -23,7 +23,7 @@ PushUpMenu {
     // Получить удалённые буквы
     function get_deleted_chars()
     {
-        var ret = "";
+        var ret = " ";
         for(var k = 0; k < 32; k++){
             if(isCharDeleted[k]){
                 ret += charVars[k];
@@ -60,6 +60,8 @@ PushUpMenu {
                         visible = false;
                         // Выходим из меню
                         alphabetMenu.close();
+                        // сообщаем букву Kernel
+                        alphabetMenu.parent.parent.parent.parent.user_char(charVars[number]);
                     }
                 }
             }

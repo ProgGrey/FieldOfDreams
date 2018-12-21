@@ -14,10 +14,6 @@
         <source>Вы проиграли!</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Выйти в главное меню</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>MainMenu</name>
@@ -85,10 +81,6 @@
     <name>Victory</name>
     <message>
         <source>Вы выиграли!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Выйти в главное меню</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
